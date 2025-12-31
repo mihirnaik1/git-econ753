@@ -146,7 +146,6 @@ kopcke_z2 <- zoo(kopcke %>% select(ie, is, je, js, kelag, kslag, f, y), order.by
 
 ## 6e2a Estimate equation 6.14 (equipment e and structures s)
 summary(eqn614e <- dynlm(data = kopcke_z2, ie ~ L(y, 0:1) + L(ie, 1), start = c(1956, 1), end = c(1986, 4)))
-summary(eqn614e <- dynlm(data = kopcke_z2, ie ~ L(y, 0:1) + L(ie, 1)))
 dwtest(eqn614e)
 (lambda <- 1 - coef(eqn614e)[["L(ie, 1)"]])
 (mu <- coef(eqn614e)[["L(y, 0:1)0"]] / lambda)
